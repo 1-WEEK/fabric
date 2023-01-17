@@ -9,7 +9,7 @@ const parserOptions = {
     jsx: true,
   },
   babelOptions: {
-    presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+    presets: ['@babel/preset-env', process.env.DISABLE_REACT || '@babel/preset-react', '@babel/preset-typescript'].filter(Boolean),
     plugins: [
       ['@babel/plugin-proposal-decorators', { legacy: true }],
       ['@babel/plugin-proposal-class-properties', { loose: true }],
